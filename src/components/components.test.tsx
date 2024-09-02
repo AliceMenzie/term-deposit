@@ -1,13 +1,14 @@
+import React from 'react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { fireEvent, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import Output from './output.js'
 import App from '../App.js'
 import Calculator from './calculator.js'
-import WatchForm from './watchForm.js'
 import * as utils from '../libs/utils/utils.js'
 import { TFormData } from '../libs/types.js'
 import { UseFormRegister } from 'react-hook-form'
+import CalculatorForm from './watchForm.js'
 
 describe('<Output/>', () => {
   it('Output should render given children', async () => {
@@ -42,7 +43,7 @@ describe('<Calculator/>', () => {
   })
 })
 
-describe('<WatchForm/>', () => {
+describe('<CalculatorForm/>', () => {
   beforeEach(() => {
     vi.resetAllMocks()
   })
@@ -50,7 +51,7 @@ describe('<WatchForm/>', () => {
   it('updates the result when form values change', async () => {
     const mockRegister: UseFormRegister<TFormData> = vi.fn()
 
-    render(<WatchForm register={mockRegister} />)
+    render(<CalculatorForm register={mockRegister} />)
 
     const startingAmount = await screen.findByLabelText('Starting amount')
     const interestRate = await screen.findByLabelText('Interest rate')

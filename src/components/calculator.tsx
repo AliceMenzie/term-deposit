@@ -2,9 +2,9 @@ import React from 'react'
 import { useForm, useWatch } from 'react-hook-form'
 import Output from './output'
 import { calculate } from '../libs/utils/utils'
-import WatchForm from './watchForm'
 import { DEFAULT_VALUES } from '../libs/constants'
 import { TFormData } from '../libs/types'
+import CalculatorForm from './watchForm'
 
 const Calculator = () => {
   const { control, register } = useForm<TFormData>({
@@ -22,9 +22,7 @@ const Calculator = () => {
   })
   return (
     <div>
-      <WatchForm
-        register={register}
-      />
+      <CalculatorForm register={register} />
       <Output>$ {result}</Output>
     </div>
   )

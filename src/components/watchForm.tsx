@@ -2,41 +2,28 @@ import React from 'react'
 import { UseFormRegister } from 'react-hook-form'
 import { TFormData } from '../libs/types'
 
-type WatchFormProps = {
+type calcFormProps = {
   register: UseFormRegister<TFormData>
 }
 
-const WatchForm = ({ register }: WatchFormProps) => {
+const CalculatorForm = ({ register }: calcFormProps) => {
   return (
     <form>
       <label className="label">
         Starting amount
-        <input
-          type="number"
-          {...register('startAmount')}
-          step="100"
-        />
+        <input min={0} type="number" {...register('startAmount')} step="100" />
       </label>
       <label>
         Interest rate
-        <input
-          type="number"
-          step="0.1"
-          {...register('interestRate')}
-        />
+        <input min={0} type="number" step="0.1" {...register('interestRate')} />
       </label>
       <label>
         Investment term
-        <input
-          type="number"
-          {...register('investmentTerm')}
-        />
+        <input min={0} type="number" {...register('investmentTerm')} />
       </label>
       <label>
         Interest payment
-        <select
-          {...register('interestPaid')}
-        >
+        <select {...register('interestPaid')}>
           <option value="12">monthly</option>
           <option value="4">quarterly</option>
           <option value="1">annually</option>
@@ -47,4 +34,4 @@ const WatchForm = ({ register }: WatchFormProps) => {
   )
 }
 
-export default WatchForm
+export default CalculatorForm
