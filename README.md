@@ -8,7 +8,7 @@
 ## Setup
 
 1. download repository
-   `cd compound-calculator`
+   `cd term-deposit`
 2. install dependencies
    `pnpm install`
    If there are any issue please try deleting pnpm-lock.yaml, node_modules, coverage directories and try again.
